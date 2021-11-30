@@ -1,0 +1,7 @@
+Arithmetic mean: 0.303756
+Quotients processed:
+It is Aphorism. What_aphorism!,_asfa_fa,, - says "Lomonosov". Quotient = 0.280000
+It is Saying from Russia: Where. Quotient = 0.000000
+It is Saying from Italy: Where?. Quotient = 0.166667
+It is Riddle. Question: What_is_it???. Answer: it_is_riddle. Quotient = 0.384615
+It is Saying from Ukraine: Where???????????. Quotient = 0.687500

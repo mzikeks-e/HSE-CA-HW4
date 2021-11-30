@@ -1,0 +1,5 @@
+Filled container:
+Container contains 3 elements.
+It is Riddle. Question: What_is_it???. Answer: it_is_riddle. Quotient = 0.384615
+It is Aphorism. What_aphorism - says "Teacher". Quotient = 0.076923
+It is Saying from Russia: Where. Quotient = 0.000000

@@ -1,0 +1,8 @@
+Arithmetic mean: 0.191854
+Quotients processed:
+It is Aphorism. What_aphorism - says "Teacher". Quotient = 0.076923
+It is Saying from Russia: Where?. Quotient = 0.166667
+It is Aphorism. in_russia_there_are_two_problems - says "wwwww". Quotient = 0.156250
+It is Saying from Russia: Where?. Quotient = 0.166667
+It is Riddle. Question: What_is_it???. Answer: it_is_riddle. Quotient = 0.384615
+It is Riddle. Question: Lamp?. Answer: pear. Quotient = 0.200000
