@@ -1,5 +1,5 @@
 ; Disassembly of file: main.obj
-; Wed Dec  1 02:42:38 2021
+; Wed Dec  1 03:08:14 2021
 ; Type: ELF64
 ; Syntax: NASM
 ; Instruction set: AVX, x64
@@ -28,25 +28,24 @@ global PrintError
 global main
 global PUNCTUATION_SYMBOLS
 
-extern srand                                            ; near
-extern time                                             ; near
-extern fclose                                           ; near
-extern atoi                                             ; near
-extern fgets                                            ; near
-extern fopen                                            ; near
-extern strcmp                                           ; near
-extern printf                                           ; near
-extern puts                                             ; near
-extern fgetc                                            ; near
-extern malloc                                           ; near
-extern rand                                             ; near
-extern fwrite                                           ; near
-extern fprintf                                          ; near
-                            ; byte
 extern strlen                                           ; near
+extern fprintf                                          ; near
+extern fwrite                                           ; near
+extern rand                                             ; near
+extern malloc                                           ; near
+extern fgetc                                            ; near
+extern puts                                             ; near
+extern printf                                           ; near
+extern strcmp                                           ; near
+extern fopen                                            ; near
+extern fgets                                            ; near
+extern atoi                                             ; near
+extern fclose                                           ; near
+extern time                                             ; near
+extern srand                                            ; near
 
 
-SECTION .text                             ; section number 1, code
+SECTION .text                            ; section number 1, code
 
 Quotient:; Function begin
         endbr64                                         ; 0000 _ F3: 0F 1E. FA
@@ -87,7 +86,7 @@ Quotient:; Function begin
         mov     rax, qword [rbp-28H]                    ; 006C _ 48: 8B. 45, D8
         add     rax, 4                                  ; 0070 _ 48: 83. C0, 04
         mov     rdi, rax                                ; 0074 _ 48: 89. C7
-        call    strlen                                  ; 0077 _ E8, 00000000(PLT r)
+        call    strlen                                  ; 0077 _ E8, 00000000(rel)
         cmp     rbx, rax                                ; 007C _ 48: 39. C3
         jc      ?_001                                   ; 007F _ 72, A0
         vcvtsi2sd xmm1, xmm1, dword [rbp-14H]           ; 0081 _ C5 F3: 2A. 4D, EC
@@ -95,7 +94,7 @@ Quotient:; Function begin
         mov     rax, qword [rbp-28H]                    ; 008B _ 48: 8B. 45, D8
         add     rax, 4                                  ; 008F _ 48: 83. C0, 04
         mov     rdi, rax                                ; 0093 _ 48: 89. C7
-        call    strlen                                  ; 0096 _ E8, 00000000(PLT r)
+        call    strlen                                  ; 0096 _ E8, 00000000(rel)
         test    rax, rax                                ; 009B _ 48: 85. C0
         js      ?_007                                   ; 009E _ 78, 07
         vcvtsi2sd xmm0, xmm0, rax                       ; 00A0 _ C4 E1 FB: 2A. C0
@@ -136,7 +135,7 @@ OutStorehouse:; Function begin
 
 ?_009:  mov     rax, qword [rbp-8H]                     ; 0106 _ 48: 8B. 45, F8
         mov     rdi, rax                                ; 010A _ 48: 89. C7
-        call    Quotient                                ; 010D _ E8, 00000000(PLT r)
+        call    Quotient                                ; 010D _ E8, FFFFFEEE
         mov     rax, qword [rbp-8H]                     ; 0112 _ 48: 8B. 45, F8
         lea     rcx, [rax+1004H]                        ; 0116 _ 48: 8D. 88, 00001004
         mov     rax, qword [rbp-8H]                     ; 011D _ 48: 8B. 45, F8
@@ -145,12 +144,12 @@ OutStorehouse:; Function begin
         lea     rsi, [rel ?_054]                        ; 0129 _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 0130 _ 48: 89. C7
         mov     eax, 1                                  ; 0133 _ B8, 00000001
-        call    fprintf                                 ; 0138 _ E8, 00000000(PLT r)
+        call    fprintf                                 ; 0138 _ E8, 00000000(rel)
         jmp     ?_013                                   ; 013D _ E9, 00000090
 
 ?_010:  mov     rax, qword [rbp-8H]                     ; 0142 _ 48: 8B. 45, F8
         mov     rdi, rax                                ; 0146 _ 48: 89. C7
-        call    Quotient                                ; 0149 _ E8, 00000000(PLT r)
+        call    Quotient                                ; 0149 _ E8, FFFFFEB2
         mov     rax, qword [rbp-8H]                     ; 014E _ 48: 8B. 45, F8
         lea     rcx, [rax+1404H]                        ; 0152 _ 48: 8D. 88, 00001404
         mov     rax, qword [rbp-8H]                     ; 0159 _ 48: 8B. 45, F8
@@ -159,12 +158,12 @@ OutStorehouse:; Function begin
         lea     rsi, [rel ?_055]                        ; 0165 _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 016C _ 48: 89. C7
         mov     eax, 1                                  ; 016F _ B8, 00000001
-        call    fprintf                                 ; 0174 _ E8, 00000000(PLT r)
+        call    fprintf                                 ; 0174 _ E8, 00000000(rel)
         jmp     ?_013                                   ; 0179 _ EB, 57
 
 ?_011:  mov     rax, qword [rbp-8H]                     ; 017B _ 48: 8B. 45, F8
         mov     rdi, rax                                ; 017F _ 48: 89. C7
-        call    Quotient                                ; 0182 _ E8, 00000000(PLT r)
+        call    Quotient                                ; 0182 _ E8, FFFFFE79
         mov     rax, qword [rbp-8H]                     ; 0187 _ 48: 8B. 45, F8
         lea     rcx, [rax+4H]                           ; 018B _ 48: 8D. 48, 04
         mov     rax, qword [rbp-8H]                     ; 018F _ 48: 8B. 45, F8
@@ -173,7 +172,7 @@ OutStorehouse:; Function begin
         lea     rsi, [rel ?_056]                        ; 019E _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 01A5 _ 48: 89. C7
         mov     eax, 1                                  ; 01A8 _ B8, 00000001
-        call    fprintf                                 ; 01AD _ E8, 00000000(PLT r)
+        call    fprintf                                 ; 01AD _ E8, 00000000(rel)
         jmp     ?_013                                   ; 01B2 _ EB, 1E
 
 ?_012:  mov     rax, qword [rbp-10H]                    ; 01B4 _ 48: 8B. 45, F0
@@ -181,7 +180,7 @@ OutStorehouse:; Function begin
         mov     edx, 31                                 ; 01BB _ BA, 0000001F
         mov     esi, 1                                  ; 01C0 _ BE, 00000001
         lea     rdi, [rel ?_057]                        ; 01C5 _ 48: 8D. 3D, 00000000(rel)
-        call    fwrite                                  ; 01CC _ E8, 00000000(PLT r)
+        call    fwrite                                  ; 01CC _ E8, 00000000(rel)
         nop                                             ; 01D1 _ 90
 ?_013:  nop                                             ; 01D2 _ 90
         leave                                           ; 01D3 _ C9
@@ -194,7 +193,7 @@ Random: ; Function begin
         mov     rbp, rsp                                ; 01DA _ 48: 89. E5
         sub     rsp, 16                                 ; 01DD _ 48: 83. EC, 10
         mov     dword [rbp-4H], edi                     ; 01E1 _ 89. 7D, FC
-        call    rand                                    ; 01E4 _ E8, 00000000(PLT r)
+        call    rand                                    ; 01E4 _ E8, 00000000(rel)
         cdq                                             ; 01E9 _ 99
         idiv    dword [rbp-4H]                          ; 01EA _ F7. 7D, FC
         mov     eax, edx                                ; 01ED _ 89. D0
@@ -212,7 +211,7 @@ GenerateContent:; Function begin
         mov     dword [rbp-4H], 0                       ; 0204 _ C7. 45, FC, 00000000
         jmp     ?_015                                   ; 020B _ EB, 3E
 
-?_014:  call    rand                                    ; 020D _ E8, 00000000(PLT r)
+?_014:  call    rand                                    ; 020D _ E8, 00000000(rel)
         movsxd  rdx, eax                                ; 0212 _ 48: 63. D0
         imul    rdx, rdx, 738919105                     ; 0215 _ 48: 69. D2, 2C0B02C1
         shr     rdx, 32                                 ; 021C _ 48: C1. EA, 20
@@ -264,7 +263,7 @@ Init:   ; Function begin
         cdqe                                            ; 0292 _ 48: 98
         imul    rax, rax, 6148                          ; 0294 _ 48: 69. C0, 00001804
         mov     rdi, rax                                ; 029B _ 48: 89. C7
-        call    malloc                                  ; 029E _ E8, 00000000(PLT r)
+        call    malloc                                  ; 029E _ E8, 00000000(rel)
         mov     rdx, rax                                ; 02A3 _ 48: 89. C2
         mov     rax, qword [rbp-8H]                     ; 02A6 _ 48: 8B. 45, F8
         mov     qword [rax+8H], rdx                     ; 02AA _ 48: 89. 50, 08
@@ -304,7 +303,7 @@ InRiddle:; Function begin
         mov     byte [rdx+rax], cl                      ; 02FB _ 88. 0C 02
 ?_017:  mov     rax, qword [rbp-20H]                    ; 02FE _ 48: 8B. 45, E0
         mov     rdi, rax                                ; 0302 _ 48: 89. C7
-        call    fgetc                                   ; 0305 _ E8, 00000000(PLT r)
+        call    fgetc                                   ; 0305 _ E8, 00000000(rel)
         mov     byte [rbp-5H], al                       ; 030A _ 88. 45, FB
         movsx   ax, byte [rbp-5H]                       ; 030D _ 66: 0F BE. 45, FB
         cmp     ax, 10                                  ; 0312 _ 66: 83. F8, 0A
@@ -330,10 +329,10 @@ InRndRiddle:; Function begin
         mov     qword [rbp-18H], rdi                    ; 0340 _ 48: 89. 7D, E8
         mov     rbx, qword [rbp-18H]                    ; 0344 _ 48: 8B. 5D, E8
         mov     edi, 10                                 ; 0348 _ BF, 0000000A
-        call    Random                                  ; 034D _ E8, 00000000(PLT r)
+        call    Random                                  ; 034D _ E8, FFFFFE83
         mov     rsi, rbx                                ; 0352 _ 48: 89. DE
         mov     edi, eax                                ; 0355 _ 89. C7
-        call    GenerateContent                         ; 0357 _ E8, 00000000(PLT r)
+        call    GenerateContent                         ; 0357 _ E8, FFFFFE95
         nop                                             ; 035C _ 90
         add     rsp, 24                                 ; 035D _ 48: 83. C4, 18
         pop     rbx                                     ; 0361 _ 5B
@@ -360,7 +359,7 @@ InSaying:; Function begin
         mov     byte [rdx+rax], cl                      ; 0394 _ 88. 0C 02
 ?_020:  mov     rax, qword [rbp-20H]                    ; 0397 _ 48: 8B. 45, E0
         mov     rdi, rax                                ; 039B _ 48: 89. C7
-        call    fgetc                                   ; 039E _ E8, 00000000(PLT r)
+        call    fgetc                                   ; 039E _ E8, 00000000(rel)
         mov     byte [rbp-5H], al                       ; 03A3 _ 88. 45, FB
         movsx   ax, byte [rbp-5H]                       ; 03A6 _ 66: 0F BE. 45, FB
         cmp     ax, 10                                  ; 03AB _ 66: 83. F8, 0A
@@ -386,10 +385,10 @@ InRndSaying:; Function begin
         mov     qword [rbp-18H], rdi                    ; 03D9 _ 48: 89. 7D, E8
         mov     rbx, qword [rbp-18H]                    ; 03DD _ 48: 8B. 5D, E8
         mov     edi, 10                                 ; 03E1 _ BF, 0000000A
-        call    Random                                  ; 03E6 _ E8, 00000000(PLT r)
+        call    Random                                  ; 03E6 _ E8, FFFFFDEA
         mov     rsi, rbx                                ; 03EB _ 48: 89. DE
         mov     edi, eax                                ; 03EE _ 89. C7
-        call    GenerateContent                         ; 03F0 _ E8, 00000000(PLT r)
+        call    GenerateContent                         ; 03F0 _ E8, FFFFFDFC
         nop                                             ; 03F5 _ 90
         add     rsp, 24                                 ; 03F6 _ 48: 83. C4, 18
         pop     rbx                                     ; 03FA _ 5B
@@ -416,7 +415,7 @@ InAphorism:; Function begin
         mov     byte [rdx+rax], cl                      ; 042D _ 88. 0C 02
 ?_023:  mov     rax, qword [rbp-20H]                    ; 0430 _ 48: 8B. 45, E0
         mov     rdi, rax                                ; 0434 _ 48: 89. C7
-        call    fgetc                                   ; 0437 _ E8, 00000000(PLT r)
+        call    fgetc                                   ; 0437 _ E8, 00000000(rel)
         mov     byte [rbp-5H], al                       ; 043C _ 88. 45, FB
         movsx   ax, byte [rbp-5H]                       ; 043F _ 66: 0F BE. 45, FB
         cmp     ax, 10                                  ; 0444 _ 66: 83. F8, 0A
@@ -442,10 +441,10 @@ InRndAphorism:; Function begin
         mov     qword [rbp-18H], rdi                    ; 0472 _ 48: 89. 7D, E8
         mov     rbx, qword [rbp-18H]                    ; 0476 _ 48: 8B. 5D, E8
         mov     edi, 15                                 ; 047A _ BF, 0000000F
-        call    Random                                  ; 047F _ E8, 00000000(PLT r)
+        call    Random                                  ; 047F _ E8, FFFFFD51
         mov     rsi, rbx                                ; 0484 _ 48: 89. DE
         mov     edi, eax                                ; 0487 _ 89. C7
-        call    GenerateContent                         ; 0489 _ E8, 00000000(PLT r)
+        call    GenerateContent                         ; 0489 _ E8, FFFFFD63
         nop                                             ; 048E _ 90
         add     rsp, 24                                 ; 048F _ 48: 83. C4, 18
         pop     rbx                                     ; 0493 _ 5B
@@ -464,7 +463,7 @@ InStorehouse:; Function begin
         mov     byte [rbp-1CH], al                      ; 04AC _ 88. 45, E4
         mov     rax, qword [rbp-18H]                    ; 04AF _ 48: 8B. 45, E8
         mov     rdi, rax                                ; 04B3 _ 48: 89. C7
-        call    fgetc                                   ; 04B6 _ E8, 00000000(PLT r)
+        call    fgetc                                   ; 04B6 _ E8, 00000000(rel)
         mov     byte [rbp-5H], al                       ; 04BB _ 88. 45, FB
         mov     dword [rbp-4H], 0                       ; 04BE _ C7. 45, FC, 00000000
         jmp     ?_026                                   ; 04C5 _ EB, 17
@@ -478,7 +477,7 @@ InStorehouse:; Function begin
         mov     byte [rdx+rax+4H], cl                   ; 04DA _ 88. 4C 02, 04
 ?_026:  mov     rax, qword [rbp-18H]                    ; 04DE _ 48: 8B. 45, E8
         mov     rdi, rax                                ; 04E2 _ 48: 89. C7
-        call    fgetc                                   ; 04E5 _ E8, 00000000(PLT r)
+        call    fgetc                                   ; 04E5 _ E8, 00000000(rel)
         mov     byte [rbp-5H], al                       ; 04EA _ 88. 45, FB
         movsx   ax, byte [rbp-5H]                       ; 04ED _ 66: 0F BE. 45, FB
         cmp     ax, 32                                  ; 04F2 _ 66: 83. F8, 20
@@ -497,7 +496,7 @@ InStorehouse:; Function begin
         mov     rdx, qword [rbp-18H]                    ; 0525 _ 48: 8B. 55, E8
         mov     rsi, rdx                                ; 0529 _ 48: 89. D6
         mov     rdi, rax                                ; 052C _ 48: 89. C7
-        call    InRiddle                                ; 052F _ E8, 00000000(PLT r)
+        call    InRiddle                                ; 052F _ E8, FFFFFD97
         jmp     ?_029                                   ; 0534 _ EB, 53
 
 ?_027:  movsx   ax, byte [rbp-1CH]                      ; 0536 _ 66: 0F BE. 45, E4
@@ -510,7 +509,7 @@ InStorehouse:; Function begin
         mov     rdx, qword [rbp-18H]                    ; 0555 _ 48: 8B. 55, E8
         mov     rsi, rdx                                ; 0559 _ 48: 89. D6
         mov     rdi, rax                                ; 055C _ 48: 89. C7
-        call    InAphorism                              ; 055F _ E8, 00000000(PLT r)
+        call    InAphorism                              ; 055F _ E8, FFFFFE99
         jmp     ?_029                                   ; 0564 _ EB, 23
 
 ?_028:  mov     rax, qword [rbp-28H]                    ; 0566 _ 48: 8B. 45, D8
@@ -520,7 +519,7 @@ InStorehouse:; Function begin
         mov     rdx, qword [rbp-18H]                    ; 057A _ 48: 8B. 55, E8
         mov     rsi, rdx                                ; 057E _ 48: 89. D6
         mov     rdi, rax                                ; 0581 _ 48: 89. C7
-        call    InSaying                                ; 0584 _ E8, 00000000(PLT r)
+        call    InSaying                                ; 0584 _ E8, FFFFFDDB
 ?_029:  nop                                             ; 0589 _ 90
         leave                                           ; 058A _ C9
         ret                                             ; 058B _ C3
@@ -533,7 +532,7 @@ InRndStorehouse:; Function begin
         push    rbx                                     ; 0594 _ 53
         sub     rsp, 40                                 ; 0595 _ 48: 83. EC, 28
         mov     qword [rbp-28H], rdi                    ; 0599 _ 48: 89. 7D, D8
-        call    rand                                    ; 059D _ E8, 00000000(PLT r)
+        call    rand                                    ; 059D _ E8, 00000000(rel)
         mov     edx, eax                                ; 05A2 _ 89. C2
         movsxd  rax, edx                                ; 05A4 _ 48: 63. C2
         imul    rax, rax, 1431655766                    ; 05A7 _ 48: 69. C0, 55555556
@@ -554,7 +553,7 @@ InRndStorehouse:; Function begin
         mov     dword [rbp-14H], eax                    ; 05D0 _ 89. 45, EC
         mov     rax, qword [rbp-28H]                    ; 05D3 _ 48: 8B. 45, D8
         lea     rbx, [rax+4H]                           ; 05D7 _ 48: 8D. 58, 04
-        call    rand                                    ; 05DB _ E8, 00000000(PLT r)
+        call    rand                                    ; 05DB _ E8, 00000000(rel)
         mov     edx, eax                                ; 05E0 _ 89. C2
         movsxd  rax, edx                                ; 05E2 _ 48: 63. C2
         imul    rax, rax, 1374389535                    ; 05E5 _ 48: 69. C0, 51EB851F
@@ -570,7 +569,7 @@ InRndStorehouse:; Function begin
         mov     eax, edx                                ; 0603 _ 89. D0
         mov     rsi, rbx                                ; 0605 _ 48: 89. DE
         mov     edi, eax                                ; 0608 _ 89. C7
-        call    GenerateContent                         ; 060A _ E8, 00000000(PLT r)
+        call    GenerateContent                         ; 060A _ E8, FFFFFBE2
         cmp     dword [rbp-14H], 0                      ; 060F _ 83. 7D, EC, 00
         jnz     ?_030                                   ; 0613 _ 75, 1E
         mov     rax, qword [rbp-28H]                    ; 0615 _ 48: 8B. 45, D8
@@ -578,7 +577,7 @@ InRndStorehouse:; Function begin
         mov     rax, qword [rbp-28H]                    ; 061F _ 48: 8B. 45, D8
         add     rax, 4100                               ; 0623 _ 48: 05, 00001004
         mov     rdi, rax                                ; 0629 _ 48: 89. C7
-        call    InRndRiddle                             ; 062C _ E8, 00000000(PLT r)
+        call    InRndRiddle                             ; 062C _ E8, FFFFFD02
         jmp     ?_032                                   ; 0631 _ EB, 40
 
 ?_030:  cmp     dword [rbp-14H], 1                      ; 0633 _ 83. 7D, EC, 01
@@ -588,7 +587,7 @@ InRndStorehouse:; Function begin
         mov     rax, qword [rbp-28H]                    ; 0643 _ 48: 8B. 45, D8
         add     rax, 5124                               ; 0647 _ 48: 05, 00001404
         mov     rdi, rax                                ; 064D _ 48: 89. C7
-        call    InRndAphorism                           ; 0650 _ E8, 00000000(PLT r)
+        call    InRndAphorism                           ; 0650 _ E8, FFFFFE10
         jmp     ?_032                                   ; 0655 _ EB, 1C
 
 ?_031:  mov     rax, qword [rbp-28H]                    ; 0657 _ 48: 8B. 45, D8
@@ -596,7 +595,7 @@ InRndStorehouse:; Function begin
         mov     rax, qword [rbp-28H]                    ; 0661 _ 48: 8B. 45, D8
         add     rax, 5636                               ; 0665 _ 48: 05, 00001604
         mov     rdi, rax                                ; 066B _ 48: 89. C7
-        call    InRndSaying                             ; 066E _ E8, 00000000(PLT r)
+        call    InRndSaying                             ; 066E _ E8, FFFFFD59
 ?_032:  nop                                             ; 0673 _ 90
         add     rsp, 40                                 ; 0674 _ 48: 83. C4, 28
         pop     rbx                                     ; 0678 _ 5B
@@ -624,7 +623,7 @@ InContainer:; Function begin
         mov     rcx, qword [rbp-20H]                    ; 06B0 _ 48: 8B. 4D, E0
         mov     esi, eax                                ; 06B4 _ 89. C6
         mov     rdi, rcx                                ; 06B6 _ 48: 89. CF
-        call    InStorehouse                            ; 06B9 _ E8, 00000000(PLT r)
+        call    InStorehouse                            ; 06B9 _ E8, FFFFFDD8
         mov     rax, qword [rbp-18H]                    ; 06BE _ 48: 8B. 45, E8
         mov     eax, dword [rax+4H]                     ; 06C2 _ 8B. 40, 04
         lea     edx, [rax+1H]                           ; 06C5 _ 8D. 50, 01
@@ -632,7 +631,7 @@ InContainer:; Function begin
         mov     dword [rax+4H], edx                     ; 06CC _ 89. 50, 04
 ?_034:  mov     rax, qword [rbp-20H]                    ; 06CF _ 48: 8B. 45, E0
         mov     rdi, rax                                ; 06D3 _ 48: 89. C7
-        call    fgetc                                   ; 06D6 _ E8, 00000000(PLT r)
+        call    fgetc                                   ; 06D6 _ E8, 00000000(rel)
         mov     byte [rbp-1H], al                       ; 06DB _ 88. 45, FF
         movsx   ax, byte [rbp-1H]                       ; 06DE _ 66: 0F BE. 45, FF
         cmp     ax, -1                                  ; 06E3 _ 66: 83. F8, FF
@@ -660,7 +659,7 @@ InRndContainer:; Function begin
         imul    rax, rax, 6148                          ; 0713 _ 48: 69. C0, 00001804
         add     rax, rdx                                ; 071A _ 48: 01. D0
         mov     rdi, rax                                ; 071D _ 48: 89. C7
-        call    InRndStorehouse                         ; 0720 _ E8, 00000000(PLT r)
+        call    InRndStorehouse                         ; 0720 _ E8, FFFFFE67
         mov     rax, qword [rbp-8H]                     ; 0725 _ 48: 8B. 45, F8
         mov     eax, dword [rax+4H]                     ; 0729 _ 8B. 40, 04
         lea     edx, [rax+1H]                           ; 072C _ 8D. 50, 01
@@ -689,7 +688,7 @@ OutContainer:; Function begin
         lea     rsi, [rel ?_058]                        ; 0765 _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 076C _ 48: 89. C7
         mov     eax, 0                                  ; 076F _ B8, 00000000
-        call    fprintf                                 ; 0774 _ E8, 00000000(PLT r)
+        call    fprintf                                 ; 0774 _ E8, 00000000(rel)
         mov     dword [rbp-4H], 0                       ; 0779 _ C7. 45, FC, 00000000
         jmp     ?_038                                   ; 0780 _ EB, 29
 
@@ -702,7 +701,7 @@ OutContainer:; Function begin
         mov     rdx, qword [rbp-20H]                    ; 0799 _ 48: 8B. 55, E0
         mov     rsi, rdx                                ; 079D _ 48: 89. D6
         mov     rdi, rax                                ; 07A0 _ 48: 89. C7
-        call    OutStorehouse                           ; 07A3 _ E8, 00000000(PLT r)
+        call    OutStorehouse                           ; 07A3 _ E8, FFFFF924
         inc     dword [rbp-4H]                          ; 07A8 _ FF. 45, FC
 ?_038:  mov     rax, qword [rbp-18H]                    ; 07AB _ 48: 8B. 45, E8
         mov     eax, dword [rax+4H]                     ; 07AF _ 8B. 40, 04
@@ -733,7 +732,7 @@ ProcessingV22:; Function begin
         imul    rax, rax, 6148                          ; 07EE _ 48: 69. C0, 00001804
         add     rax, rdx                                ; 07F5 _ 48: 01. D0
         mov     rdi, rax                                ; 07F8 _ 48: 89. C7
-        call    Quotient                                ; 07FB _ E8, 00000000(PLT r)
+        call    Quotient                                ; 07FB _ E8, FFFFF800
         vmovsd  xmm1, qword [rbp-8H]                    ; 0800 _ C5 FB: 10. 4D, F8
         vaddsd  xmm0, xmm1, xmm0                        ; 0805 _ C5 F3: 58. C0
         vmovsd  qword [rbp-8H], xmm0                    ; 0809 _ C5 FB: 11. 45, F8
@@ -754,13 +753,13 @@ ProcessingV22:; Function begin
         lea     rsi, [rel ?_059]                        ; 0843 _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 084A _ 48: 89. C7
         mov     eax, 1                                  ; 084D _ B8, 00000001
-        call    fprintf                                 ; 0852 _ E8, 00000000(PLT r)
+        call    fprintf                                 ; 0852 _ E8, 00000000(rel)
         mov     rax, qword [rbp-30H]                    ; 0857 _ 48: 8B. 45, D0
         mov     rcx, rax                                ; 085B _ 48: 89. C1
         mov     edx, 21                                 ; 085E _ BA, 00000015
         mov     esi, 1                                  ; 0863 _ BE, 00000001
         lea     rdi, [rel ?_060]                        ; 0868 _ 48: 8D. 3D, 00000000(rel)
-        call    fwrite                                  ; 086F _ E8, 00000000(PLT r)
+        call    fwrite                                  ; 086F _ E8, 00000000(rel)
         mov     dword [rbp-10H], 0                      ; 0874 _ C7. 45, F0, 00000000
         jmp     ?_043                                   ; 087B _ EB, 53
 
@@ -771,7 +770,7 @@ ProcessingV22:; Function begin
         imul    rax, rax, 6148                          ; 088A _ 48: 69. C0, 00001804
         add     rax, rdx                                ; 0891 _ 48: 01. D0
         mov     rdi, rax                                ; 0894 _ 48: 89. C7
-        call    Quotient                                ; 0897 _ E8, 00000000(PLT r)
+        call    Quotient                                ; 0897 _ E8, FFFFF764
         vmovsd  xmm1, qword [rbp-20H]                   ; 089C _ C5 FB: 10. 4D, E0
         vcomisd xmm1, xmm0                              ; 08A1 _ C5 F9: 2F. C8
         jc      ?_042                                   ; 08A5 _ 72, 26
@@ -784,7 +783,7 @@ ProcessingV22:; Function begin
         mov     rdx, qword [rbp-30H]                    ; 08BE _ 48: 8B. 55, D0
         mov     rsi, rdx                                ; 08C2 _ 48: 89. D6
         mov     rdi, rax                                ; 08C5 _ 48: 89. C7
-        call    OutStorehouse                           ; 08C8 _ E8, 00000000(PLT r)
+        call    OutStorehouse                           ; 08C8 _ E8, FFFFF7FF
 ?_042:  inc     dword [rbp-10H]                         ; 08CD _ FF. 45, F0
 ?_043:  mov     rax, qword [rbp-28H]                    ; 08D0 _ 48: 8B. 45, D8
         mov     eax, dword [rax+4H]                     ; 08D4 _ 8B. 40, 04
@@ -800,7 +799,7 @@ ProcessingV22:; Function begin
         imul    rax, rax, 6148                          ; 08F2 _ 48: 69. C0, 00001804
         add     rax, rdx                                ; 08F9 _ 48: 01. D0
         mov     rdi, rax                                ; 08FC _ 48: 89. C7
-        call    Quotient                                ; 08FF _ E8, 00000000(PLT r)
+        call    Quotient                                ; 08FF _ E8, FFFFF6FC
         vcomisd xmm0, qword [rbp-20H]                   ; 0904 _ C5 F9: 2F. 45, E0
         jbe     ?_045                                   ; 0909 _ 76, 26
         mov     rax, qword [rbp-28H]                    ; 090B _ 48: 8B. 45, D8
@@ -812,7 +811,7 @@ ProcessingV22:; Function begin
         mov     rdx, qword [rbp-30H]                    ; 0922 _ 48: 8B. 55, D0
         mov     rsi, rdx                                ; 0926 _ 48: 89. D6
         mov     rdi, rax                                ; 0929 _ 48: 89. C7
-        call    OutStorehouse                           ; 092C _ E8, 00000000(PLT r)
+        call    OutStorehouse                           ; 092C _ E8, FFFFF79B
 ?_045:  inc     dword [rbp-14H]                         ; 0931 _ FF. 45, EC
 ?_046:  mov     rax, qword [rbp-28H]                    ; 0934 _ 48: 8B. 45, D8
         mov     eax, dword [rax+4H]                     ; 0938 _ 8B. 40, 04
@@ -829,7 +828,7 @@ PrintError:; Function begin
         push    rbp                                     ; 0948 _ 55
         mov     rbp, rsp                                ; 0949 _ 48: 89. E5
         lea     rdi, [rel ?_061]                        ; 094C _ 48: 8D. 3D, 00000000(rel)
-        call    puts                                    ; 0953 _ E8, 00000000(PLT r)
+        call    puts                                    ; 0953 _ E8, 00000000(rel)
         nop                                             ; 0958 _ 90
         pop     rbp                                     ; 0959 _ 5D
         ret                                             ; 095A _ C3
@@ -847,18 +846,18 @@ main:   ; Function begin
         cmp     dword [rbp-1044H], 5                    ; 0980 _ 83. BD, FFFFEFBC, 05
         jz      ?_047                                   ; 0987 _ 74, 0F
         mov     eax, 0                                  ; 0989 _ B8, 00000000
-        call    PrintError                              ; 098E _ E8, 00000000(PLT r)
+        call    PrintError                              ; 098E _ E8, FFFFFFB1
         jmp     ?_053                                   ; 0993 _ E9, 0000021C
 
 ?_047:  lea     rdi, [rel ?_062]                        ; 0998 _ 48: 8D. 3D, 00000000(rel)
         mov     eax, 0                                  ; 099F _ B8, 00000000
-        call    printf                                  ; 09A4 _ E8, 00000000(PLT r)
+        call    printf                                  ; 09A4 _ E8, 00000000(rel)
         mov     rax, qword [rbp-1050H]                  ; 09A9 _ 48: 8B. 85, FFFFEFB0
         add     rax, 8                                  ; 09B0 _ 48: 83. C0, 08
         mov     rax, qword [rax]                        ; 09B4 _ 48: 8B. 00
         lea     rsi, [rel ?_063]                        ; 09B7 _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 09BE _ 48: 89. C7
-        call    strcmp                                  ; 09C1 _ E8, 00000000(PLT r)
+        call    strcmp                                  ; 09C1 _ E8, 00000000(rel)
         test    eax, eax                                ; 09C6 _ 85. C0
         jne     ?_048                                   ; 09C8 _ 0F 85, 00000083
         mov     rax, qword [rbp-1050H]                  ; 09CE _ 48: 8B. 85, FFFFEFB0
@@ -866,31 +865,31 @@ main:   ; Function begin
         mov     rax, qword [rax]                        ; 09D9 _ 48: 8B. 00
         lea     rsi, [rel ?_064]                        ; 09DC _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 09E3 _ 48: 89. C7
-        call    fopen                                   ; 09E6 _ E8, 00000000(PLT r)
+        call    fopen                                   ; 09E6 _ E8, 00000000(rel)
         mov     qword [rbp-10H], rax                    ; 09EB _ 48: 89. 45, F0
         mov     rdx, qword [rbp-10H]                    ; 09EF _ 48: 8B. 55, F0
         lea     rax, [rbp-1040H]                        ; 09F3 _ 48: 8D. 85, FFFFEFC0
         mov     esi, 4096                               ; 09FA _ BE, 00001000
         mov     rdi, rax                                ; 09FF _ 48: 89. C7
-        call    fgets                                   ; 0A02 _ E8, 00000000(PLT r)
+        call    fgets                                   ; 0A02 _ E8, 00000000(rel)
         lea     rax, [rbp-1040H]                        ; 0A07 _ 48: 8D. 85, FFFFEFC0
         mov     rdi, rax                                ; 0A0E _ 48: 89. C7
-        call    atoi                                    ; 0A11 _ E8, 00000000(PLT r)
+        call    atoi                                    ; 0A11 _ E8, 00000000(rel)
         mov     dword [rbp-14H], eax                    ; 0A16 _ 89. 45, EC
         mov     eax, dword [rbp-14H]                    ; 0A19 _ 8B. 45, EC
         lea     edx, [rax+1H]                           ; 0A1C _ 8D. 50, 01
         lea     rax, [rbp-40H]                          ; 0A1F _ 48: 8D. 45, C0
         mov     esi, edx                                ; 0A23 _ 89. D6
         mov     rdi, rax                                ; 0A25 _ 48: 89. C7
-        call    Init                                    ; 0A28 _ E8, 00000000(PLT r)
+        call    Init                                    ; 0A28 _ E8, FFFFF838
         mov     rdx, qword [rbp-10H]                    ; 0A2D _ 48: 8B. 55, F0
         lea     rax, [rbp-40H]                          ; 0A31 _ 48: 8D. 45, C0
         mov     rsi, rdx                                ; 0A35 _ 48: 89. D6
         mov     rdi, rax                                ; 0A38 _ 48: 89. C7
-        call    InContainer                             ; 0A3B _ E8, 00000000(PLT r)
+        call    InContainer                             ; 0A3B _ E8, FFFFFC3B
         mov     rax, qword [rbp-10H]                    ; 0A40 _ 48: 8B. 45, F0
         mov     rdi, rax                                ; 0A44 _ 48: 89. C7
-        call    fclose                                  ; 0A47 _ E8, 00000000(PLT r)
+        call    fclose                                  ; 0A47 _ E8, 00000000(rel)
         jmp     ?_052                                   ; 0A4C _ E9, 000000A8
 
 ?_048:  mov     rax, qword [rbp-1050H]                  ; 0A51 _ 48: 8B. 85, FFFFEFB0
@@ -898,24 +897,24 @@ main:   ; Function begin
         mov     rax, qword [rax]                        ; 0A5C _ 48: 8B. 00
         lea     rsi, [rel ?_065]                        ; 0A5F _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 0A66 _ 48: 89. C7
-        call    strcmp                                  ; 0A69 _ E8, 00000000(PLT r)
+        call    strcmp                                  ; 0A69 _ E8, 00000000(rel)
         test    eax, eax                                ; 0A6E _ 85. C0
         jnz     ?_051                                   ; 0A70 _ 75, 78
         mov     edi, 0                                  ; 0A72 _ BF, 00000000
-        call    time                                    ; 0A77 _ E8, 00000000(PLT r)
+        call    time                                    ; 0A77 _ E8, 00000000(rel)
         mov     edi, eax                                ; 0A7C _ 89. C7
-        call    srand                                   ; 0A7E _ E8, 00000000(PLT r)
+        call    srand                                   ; 0A7E _ E8, 00000000(rel)
         mov     rax, qword [rbp-1050H]                  ; 0A83 _ 48: 8B. 85, FFFFEFB0
         add     rax, 16                                 ; 0A8A _ 48: 83. C0, 10
         mov     rax, qword [rax]                        ; 0A8E _ 48: 8B. 00
         mov     rdi, rax                                ; 0A91 _ 48: 89. C7
-        call    atoi                                    ; 0A94 _ E8, 00000000(PLT r)
+        call    atoi                                    ; 0A94 _ E8, 00000000(rel)
         mov     dword [rbp-4H], eax                     ; 0A99 _ 89. 45, FC
         mov     edx, dword [rbp-4H]                     ; 0A9C _ 8B. 55, FC
         lea     rax, [rbp-40H]                          ; 0A9F _ 48: 8D. 45, C0
         mov     esi, edx                                ; 0AA3 _ 89. D6
         mov     rdi, rax                                ; 0AA5 _ 48: 89. C7
-        call    Init                                    ; 0AA8 _ E8, 00000000(PLT r)
+        call    Init                                    ; 0AA8 _ E8, FFFFF7B8
         cmp     dword [rbp-4H], 0                       ; 0AAD _ 83. 7D, FC, 00
         jle     ?_049                                   ; 0AB1 _ 7E, 09
         cmp     dword [rbp-4H], 20000                   ; 0AB3 _ 81. 7D, FC, 00004E20
@@ -924,18 +923,18 @@ main:   ; Function begin
         mov     esi, eax                                ; 0ABF _ 89. C6
         lea     rdi, [rel ?_066]                        ; 0AC1 _ 48: 8D. 3D, 00000000(rel)
         mov     eax, 0                                  ; 0AC8 _ B8, 00000000
-        call    printf                                  ; 0ACD _ E8, 00000000(PLT r)
+        call    printf                                  ; 0ACD _ E8, 00000000(rel)
         jmp     ?_053                                   ; 0AD2 _ E9, 000000DD
 
 ?_050:  mov     edx, dword [rbp-4H]                     ; 0AD7 _ 8B. 55, FC
         lea     rax, [rbp-40H]                          ; 0ADA _ 48: 8D. 45, C0
         mov     esi, edx                                ; 0ADE _ 89. D6
         mov     rdi, rax                                ; 0AE0 _ 48: 89. C7
-        call    InRndContainer                          ; 0AE3 _ E8, 00000000(PLT r)
+        call    InRndContainer                          ; 0AE3 _ E8, FFFFFC05
         jmp     ?_052                                   ; 0AE8 _ EB, 0F
 
 ?_051:  mov     eax, 0                                  ; 0AEA _ B8, 00000000
-        call    PrintError                              ; 0AEF _ E8, 00000000(PLT r)
+        call    PrintError                              ; 0AEF _ E8, FFFFFE50
         jmp     ?_053                                   ; 0AF4 _ E9, 000000BB
 
 ?_052:  mov     rax, qword [rbp-1050H]                  ; 0AF9 _ 48: 8B. 85, FFFFEFB0
@@ -943,43 +942,43 @@ main:   ; Function begin
         mov     rax, qword [rax]                        ; 0B04 _ 48: 8B. 00
         lea     rsi, [rel ?_067]                        ; 0B07 _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 0B0E _ 48: 89. C7
-        call    fopen                                   ; 0B11 _ E8, 00000000(PLT r)
+        call    fopen                                   ; 0B11 _ E8, 00000000(rel)
         mov     qword [rbp-20H], rax                    ; 0B16 _ 48: 89. 45, E0
         mov     rax, qword [rbp-20H]                    ; 0B1A _ 48: 8B. 45, E0
         mov     rcx, rax                                ; 0B1E _ 48: 89. C1
         mov     edx, 18                                 ; 0B21 _ BA, 00000012
         mov     esi, 1                                  ; 0B26 _ BE, 00000001
         lea     rdi, [rel ?_068]                        ; 0B2B _ 48: 8D. 3D, 00000000(rel)
-        call    fwrite                                  ; 0B32 _ E8, 00000000(PLT r)
+        call    fwrite                                  ; 0B32 _ E8, 00000000(rel)
         mov     rdx, qword [rbp-20H]                    ; 0B37 _ 48: 8B. 55, E0
         lea     rax, [rbp-40H]                          ; 0B3B _ 48: 8D. 45, C0
         mov     rsi, rdx                                ; 0B3F _ 48: 89. D6
         mov     rdi, rax                                ; 0B42 _ 48: 89. C7
-        call    OutContainer                            ; 0B45 _ E8, 00000000(PLT r)
+        call    OutContainer                            ; 0B45 _ E8, FFFFFBFC
         mov     rax, qword [rbp-1050H]                  ; 0B4A _ 48: 8B. 85, FFFFEFB0
         add     rax, 32                                 ; 0B51 _ 48: 83. C0, 20
         mov     rax, qword [rax]                        ; 0B55 _ 48: 8B. 00
         lea     rsi, [rel ?_067]                        ; 0B58 _ 48: 8D. 35, 00000000(rel)
         mov     rdi, rax                                ; 0B5F _ 48: 89. C7
-        call    fopen                                   ; 0B62 _ E8, 00000000(PLT r)
+        call    fopen                                   ; 0B62 _ E8, 00000000(rel)
         mov     qword [rbp-28H], rax                    ; 0B67 _ 48: 89. 45, D8
         mov     rdx, qword [rbp-28H]                    ; 0B6B _ 48: 8B. 55, D8
         lea     rax, [rbp-40H]                          ; 0B6F _ 48: 8D. 45, C0
         mov     rsi, rdx                                ; 0B73 _ 48: 89. D6
         mov     rdi, rax                                ; 0B76 _ 48: 89. C7
-        call    ProcessingV22                           ; 0B79 _ E8, 00000000(PLT r)
+        call    ProcessingV22                           ; 0B79 _ E8, FFFFFC3D
         mov     rax, qword [rbp-20H]                    ; 0B7E _ 48: 8B. 45, E0
         mov     rdi, rax                                ; 0B82 _ 48: 89. C7
-        call    fclose                                  ; 0B85 _ E8, 00000000(PLT r)
+        call    fclose                                  ; 0B85 _ E8, 00000000(rel)
         mov     rax, qword [rbp-28H]                    ; 0B8A _ 48: 8B. 45, D8
         mov     rdi, rax                                ; 0B8E _ 48: 89. C7
-        call    fclose                                  ; 0B91 _ E8, 00000000(PLT r)
+        call    fclose                                  ; 0B91 _ E8, 00000000(rel)
         lea     rax, [rbp-40H]                          ; 0B96 _ 48: 8D. 45, C0
         mov     rdi, rax                                ; 0B9A _ 48: 89. C7
-        call    Clear                                   ; 0B9D _ E8, 00000000(PLT r)
+        call    Clear                                   ; 0B9D _ E8, FFFFF70F
         lea     rdi, [rel ?_069]                        ; 0BA2 _ 48: 8D. 3D, 00000000(rel)
         mov     eax, 0                                  ; 0BA9 _ B8, 00000000
-        call    printf                                  ; 0BAE _ E8, 00000000(PLT r)
+        call    printf                                  ; 0BAE _ E8, 00000000(rel)
         nop                                             ; 0BB3 _ 90
 ?_053:  leave                                           ; 0BB4 _ C9
         ret                                             ; 0BB5 _ C3
@@ -994,8 +993,8 @@ SECTION .bss                            ; section number 3, bss
 
 SECTION .rodata                         ; section number 4, const
 
-PUNCTUATION_SYMBOLS:                                    ; qword
-        dq 213F5F3A2D3B2E2CH                            ; 0000 _ 213F5F3A2D3B2E2C 
+PUNCTUATION_SYMBOLS:                                    ; byte
+        db 2CH, 2EH, 3BH, 2DH, 3AH, 5FH, 3FH, 21H       ; 0000 _ ,.;-:_?!
 
 ?_054:                                                  ; byte
         db 49H, 74H, 20H, 69H, 73H, 20H, 52H, 69H       ; 0008 _ It is Ri

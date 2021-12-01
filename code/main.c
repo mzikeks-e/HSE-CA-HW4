@@ -240,7 +240,10 @@ void main(int argc, char* argv[]) {
     }
 
     printf("Start. Please, check, that all spaces in content of storehouse replaced with _.");
+    clock_t start_time, end_time;
+    start_time = clock();
     struct container c;
+
 
     if (!strcmp(argv[1], "-f")) {
         FILE* file;
@@ -280,6 +283,8 @@ void main(int argc, char* argv[]) {
     fclose(file1);
     fclose(file2);
     Clear(&c);
+    end_time = clock();
+    printf("\nTime: %.5lf", (end_time, start_time) / double(CLOCKS_PER_SEC));
     printf("\nFinished");
     return;
 }
